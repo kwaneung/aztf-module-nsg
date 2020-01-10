@@ -1,7 +1,7 @@
 # aztf-module-nsg
 ```
 module "nsg" {
-  source                            = "git://github.com/kwaneung/aztf-module-vnet.git"
+  source                            = "git://github.com/kwaneung/aztf-module-nsg.git"
 
   resource_group_name = azurerm_resource_group.rg.name
 
