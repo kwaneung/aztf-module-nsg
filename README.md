@@ -1,22 +1,25 @@
 # aztf-module-nsg
 ```
-resource "azurerm_network_security_group" "nsg" {
-  name                = format("%2_%s", "nsg", var.nsg_name)
-  location            = var.location
-  resource_group_name = var.resource_group_name
-  
-  security_rule {
-    name                       = var.rule_name
-    priority                   = var.priority
-    direction                  = var.direction
-    access                     = var.access
-    protocol                   = var.protocol
-    source_port_range          = var.source_port_range
-    destination_port_range     = var.destination_port_range
-    source_address_prefix      = var.source_address_prefix
-    destination_address_prefix = var.destination_address_prefix
-  }
+module "nsg" {
+  source                            = "git://github.com/kwaneung/aztf-module-vnet.git"
 
-  tags = var.tags
+  resource_group_name = azurerm_resource_group.rg.name
+
+  nsg_name = "mtp"
+
+  location = azurerm_resource_group.rg.location
+
+  rule_name = "rule_80"
+
+  priority = 100
+
+  access = "Allow"
+
+  protocol = "TCP"
+
+  tags = {
+      test = "nsg_module"
+    }
 }
 ```
+
