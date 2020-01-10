@@ -19,6 +19,10 @@ variable "priority" {
   description = "Num of priority"
 }
 
+variable "direction" {
+  description = "Inbound or Outbound"
+}
+
 variable "access" {
   description = "Allow or Deny"
 }
