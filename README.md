@@ -12,6 +12,8 @@ module "nsg" {
   rule_name = "rule_80"
 
   priority = 100
+  
+  direction = "Inbound"
 
   access = "Allow"
 
