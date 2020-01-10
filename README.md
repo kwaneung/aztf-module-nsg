@@ -1,5 +1,5 @@
 # aztf-module-nsg
-
+```
 resource "azurerm_network_security_group" "nsg" {
   name                = format("%2_%s", "nsg", var.nsg_name)
   location            = var.location
@@ -19,3 +19,4 @@ resource "azurerm_network_security_group" "nsg" {
 
   tags = var.tags
 }
+```
